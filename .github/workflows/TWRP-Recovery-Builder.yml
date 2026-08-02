@@ -158,6 +158,9 @@ jobs:
     - name: Building Image 
       run: |
         cd workspace
+        echo "=== Listing device tree directory contents ==="
+        ls -lR device/alps/SQAIPAD-V11/
+        echo "=== End of listing ==="
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
         lunch omni_SQAIPAD_V11-eng && make clean && make ${{ github.event.inputs.BUILD_TARGET }}image -j$(nproc --all)

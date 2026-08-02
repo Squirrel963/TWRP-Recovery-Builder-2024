@@ -138,15 +138,14 @@ jobs:
 
     - name: Check Build Makefile
       run: |
-        cd workspace
-        if [ -f device/alps/SQAIPAD-V11/twrp_SQAIPAD_V11.mk ]; then
-            echo "DEVICE_MAKEFILE=twrp_SQAIPAD_V11" >> $GITHUB_ENV
-        elif [ -f device/alps/SQAIPAD-V11/omni_SQAIPAD_V11.mk ]; then
-            echo "DEVICE_MAKEFILE=omni_SQAIPAD_V11" >> $GITHUB_ENV
-        else
-            echo "No recovery makefile file found!"
-            # 即使找不到也继续，因为 lunch 是硬编码的
-        fi
+          cd workspace
+          if [ -f device/alps/SQAIPAD-V11/twrp_SQAIPAD_V11.mk ]; then
+              echo "DEVICE_MAKEFILE=twrp_SQAIPAD_V11" >> $GITHUB_ENV
+          elif [ -f device/alps/SQAIPAD-V11/omni_SQAIPAD_V11.mk ]; then
+              echo "DEVICE_MAKEFILE=omni_SQAIPAD_V11" >> $GITHUB_ENV
+          else
+              echo "No recovery makefile file found!"
+          fi
       continue-on-error: true
       
     - name: Install Python 2

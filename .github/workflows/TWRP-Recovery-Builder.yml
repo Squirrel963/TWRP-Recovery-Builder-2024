@@ -136,6 +136,11 @@ jobs:
         cd ${{ github.event.inputs.DEVICE_PATH }}
         echo "COMMIT_ID=$(git rev-parse HEAD)" >> $GITHUB_ENV
 
+    - name: Verify BoardConfig.mk
+      run: |
+        cd workspace
+        cat device/alps/SQAIPAD-V11/BoardConfig.mk | grep TARGET_DEVICE
+        
     - name: Check Build Makefile
       run: |
           cd workspace

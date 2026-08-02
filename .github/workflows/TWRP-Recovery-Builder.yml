@@ -16,7 +16,7 @@ on:
       DEVICE_TREE:
         description: 'Custom Recovery Tree' 
         required: true
-        default: 'https://github.com/GMBuilding/alps_SQAIPAD_V11_Twrp_Devices'
+        default: 'https://github.com/Squirrel963/alps_SQAIPAD_V11_Twrp_Devices'
       DEVICE_TREE_BRANCH:
         description: 'Custom Recovery Tree Branch' 
         required: true

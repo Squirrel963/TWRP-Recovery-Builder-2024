@@ -24,7 +24,7 @@ on:
       DEVICE_PATH:
         description: 'Specify your Device Path' 
         required: true
-        default: 'device/samsung/SQAIPAD-V11'
+        default: 'device/alps/SQAIPAD-V11'
       DEVICE_NAME:
         description: 'Specify your Device Codename' 
         required: true

@@ -157,21 +157,11 @@ jobs:
 
     - name: Building Image 
       run: |
-          cd workspace
-          source build/envsetup.sh
-          export ALLOW_MISSING_DEPENDENCIES=true
-        
-          # ---------- 修补设备树，将 - 改为 _ ----------
-          cd device/samsung/SQAIPAD-V11
-          # 重命名主 makefile
-          mv omni_SQAIPAD-V11.mk omni_SQAIPAD_V11.mk
-          # 替换所有文件中的旧名称
-          sed -i 's/omni_SQAIPAD-V11/omni_SQAIPAD_V11/g' AndroidProducts.mk omni_SQAIPAD_V11.mk vendorsetup.sh BoardConfig.mk 2>/dev/null || true
-          cd ../../..
-        
-          # ---------- 执行编译 ----------
-          lunch omni_SQAIPAD_V11-eng && make clean && make ${{ github.event.inputs.BUILD_TARGET }}image -j$(nproc --all)
-          echo "Done building your recovery.img"
+        cd workspace
+        source build/envsetup.sh
+        export ALLOW_MISSING_DEPENDENCIES=true
+        lunch omni_SQAIPAD_V11-eng && make clean && make ${{ github.event.inputs.BUILD_TARGET }}image -j$(nproc --all)
+        echo "Done building your recovery.img"
       
     - name: Set Build Date # Output will be use in Release
       run: |
